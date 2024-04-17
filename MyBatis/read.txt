@@ -1,0 +1,84 @@
+demo1       MyBatis创建（核心配置文件|Mapper接口|映射文件）
+
+demo2       获取参数值的两种方式#{}（占位符赋值，开发时优先级优于后者）和${}（字符串拼接）
+            mybatis获取参数的各种情况
+            {
+                1.单个字面量情况：名字任意，但最好见名知意
+                2.多个字面量情况：mybatis会将参数放在map集合中，以两种方式进行存储：
+                    -->以arg0.arg1.arg2...为键，参数为值
+                    -->以param1.param2.param3...为键，参数为值
+                    #{arg0}     '${arg0}'
+                3.多个字面量,手动将参数放入map中存储
+                4.mapper接口方法参数是一个实体类对象:直接通过属性名获取
+                5.命名参数@Param(2、3两种情况的结合：自己设置键，且mybatis帮我们创造map集合)
+                    -->以@Param的values...为键，参数为值
+                    -->以param1.param2.param3...为键，参数为值
+            }
+            查询的各种情况：
+            {
+                1.查询一个实体类对象
+                2.查询一个list集合
+                3.查询单个数据
+                4.查询一条数据为map集合
+                5.查询多条数据为map集合
+                    方式一-->resultType直接为map,但需要用List<Map>接收
+                    方式二-->将表中的数据以map集合的方式查询，一条数据对应一个map；若有多条数据，就会产生多个map集合，并
+                            且最终要以一个map的方式返回数据;
+                            此时返回的map集合的键是@Mapkey的value对应的字段的值，值是每条数据所对应的map集合。
+            }
+            特殊SQL的执行：
+            {
+                1.模糊查询
+                2.批量删除
+                3.动态设置表名
+                4.添加功能设置自动递增的主键
+            }
+
+
+demo3       一、自定义映射
+            字段名和属性名映射关系：
+            {
+                1.Sql查询时起别名。
+                2.通过全局配置mapUnderscoreToCamelCase进行下划线与驼峰的映射
+                3.通过ResultMap解决映射关系
+            }
+            多对一映射处理：
+            {
+                1.级联方式处理映射关系
+                2.使用association处理映射关系
+                3.分步查询(效率很高：1.因为多表联查（先做笛卡尔积）的效率小于单表的多次查询
+                                    2.可以使用延迟加载)
+            }
+            一对多映射问题：
+            {
+                1.通过collection(oftype属性)
+                2.分步查询
+            }
+
+
+            二、动态SQL
+            {
+                1.if标签
+                2.where标签(自动生成where关键字（无内容时不生成）、去掉内容前（后面的不行）多余的and/or)
+                3.trim(prefix/suffix:内容前后添加内容
+                        suffixOverrides/prefixOverrides:内容前后删除内容)
+                4.choose/when/otherwise(根据其中一个进行判断)
+                5.foreach标签
+                6.Sql标签(sql片段，可以记录一段公共sql片段，在使用的地方通过include标签进行引入)
+            }
+
+            三、mybatis缓存
+            {
+                1.一级缓存（sqlSession级别）
+                失效的4种情况：
+                {
+                    1) 不同的SqlSession对应不同的一级缓存
+                    2) 同一个SqlSession但是查询条件不同
+                    3) 同一个SqlSession两次查询期间执行了任何一次增删改操作
+                    4) 同一个SqlSession两次查询期间手动清空了缓存
+                }
+                2.二级缓存（SqlSessionFactory级别）
+                可以用第三方缓存EHCache代替二级缓存
+            }
+
+demo4       Mybatis逆向工程 + 分页插件

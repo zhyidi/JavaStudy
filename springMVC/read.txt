@@ -1,0 +1,40 @@
+demo1       helloworld
+demo2       RequestMapping注解（修饰类、方法 | values属性 | method属性 | 派生注解 | params/Header属性 | 路径ant风格 | 占位符）
+            获取请求参数（Servlet原生API、控制器方法形参、对应关系@RequestParam)
+            获取请求头信息(@RequestHeader)
+            获取cookie信息(@CookieValue)
+            通过pojo获取请求参数(解决乱码问题)
+
+demo3       域对象:request:（servletApi设置 | ModelAndView | Model | ModelMap | Map）
+                   session:(servletApi设置)
+                   application:(servletApi设置)
+            View视图：ThymeleafView、InternalResourceView、RedirectView
+                      {
+                      ps:重定向和转发的区别：
+                        1.两次请求、一次请求
+                        2.共享域、不共享
+                        3.不能到WEB-INF、能到WEB-INF
+                        4.可跨域（因为是浏览器再次请求，所以可以请求服务器以外的资源，比如重定向到百度）、不可跨域（只能在服务器内部）
+                      }
+            视图控制器：View-controller
+            Restful风格
+
+demo4       HttpMessageConverter（json(导入依赖包返回实体类),ajax） | 文件上传和下载
+
+demo5       拦截器 | 异常处理（基于配置/注解）
+
+JSP         InternalResourceView解析jsp
+
+Restful     Restful案例（增删改查的实现）
+            {
+                功能                  URL地址       请求方式
+                访问首页√               /              GET
+                查询全部数据√         /employee        GET
+                删除√                 /employee/2     DELETE
+                跳转到添加数据页面√      /toAdd        GET
+                执行保存√               /employee      POST
+                跳转到更新数据页面√      /employee/2    GET
+                执行更新√               /employee      PUT
+            }
+
+annotation  完全注解开发(代替web.xml和springmvc.xml文件)

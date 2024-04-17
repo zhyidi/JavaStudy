@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--开启组件扫描-->
+    <context:component-scan base-package="com.zhyidi.spring5"></context:component-scan>
+
+    <!--
+    引用外部属性文件
+    -->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="username" value="${druid.username}"></property>
+        <property name="password" value="${druid.password}"></property>
+        <property name="driverClassName" value="${druid.driverClassName}"></property>
+        <property name="url" value="${druid.url}"></property>
+        <property name="initialSize" value="${druid.initialSize}"></property>
+        <property name="maxActive" value="${druid.maxActive}"></property>
+    </bean>
+
+    <!--创建JDBCTemplate对象-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <!--注入Datasource-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--创建事务管理器-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <!--配置通知(选择事务管理器)-->
+    <tx:advice id="txadvice" transaction-manager="dataSourceTransactionManager">
+        <!--配置事务参数-->
+        <tx:attributes>
+            <tx:method name="zhuanmoney_plus2" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置切入点和切面-->
+    <aop:config>
+        <aop:pointcut id="point" expression="execution(* com.zhyidi.spring5.Service.UserService.zhuanmoney_plus2(..))"/>
+        <aop:advisor advice-ref="txadvice" pointcut-ref="point"></aop:advisor>
+    </aop:config>
+</beans>

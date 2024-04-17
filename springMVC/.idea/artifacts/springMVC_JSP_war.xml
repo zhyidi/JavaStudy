@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springMVC_JSP:war">
+    <output-path>$PROJECT_DIR$/springMVC_JSP/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springMVC_JSP</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="springMVC_JSP-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="springMVC_JSP:war exploded" />
+    </root>
+  </artifact>
+</component>

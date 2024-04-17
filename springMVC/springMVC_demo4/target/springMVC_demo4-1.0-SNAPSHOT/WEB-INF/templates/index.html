@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmls:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    <h1>首页</h1>
+    <form th:action="@{/testRequestBody}" method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        <input type="submit" value="测试RequestBody">
+    </form>
+    <form th:action="@{/testRequestEntity}" method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        <input type="submit" value="测试testRequestEntity">
+    </form>
+    <a th:href="@{/testResponse}">HttpServletResponse</a><br/>
+    <a th:href="@{/testResponseBody}">通过testResponseBody响应数据</a><br/>
+    <a th:href="@{/testResponseUser}">通过testResponseUser响应数据</a><br/>
+
+    <div id="testajax">
+        <a @click="testajax_method" th:href="@{/testaxios}">SpringMVC处理Ajax</a>
+    </div>
+
+    <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
+    <script type="text/javascript">
+        new Vue({
+            el:"#testajax",
+            methods:{
+                testajax_method:function (event) {
+                    axios({
+                        method:"post",
+                        url:event.target.href,
+                        params:{
+                            username:"admin",
+                            password:"admin_pass"
+                        }
+                    }).then(function (response){
+                        alert(response.data)
+                    });
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

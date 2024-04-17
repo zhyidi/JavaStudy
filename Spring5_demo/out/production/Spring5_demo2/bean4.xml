@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dept1" class="com.zhyidi.spring5.autowrite.Dept"></bean>
+    <bean id="emp1" class="com.zhyidi.spring5.autowrite.Emp">
+        <property name="dept" ref="dept1"></property>
+    </bean>
+
+    <!--自动装配byname(id和类属性名称要相同)-->
+    <bean id="dept" class="com.zhyidi.spring5.autowrite.Dept"></bean>
+    <bean id="emp2" class="com.zhyidi.spring5.autowrite.Emp" autowire="byName"></bean>
+
+    <!--自动装配bytype(多于一个报错)-->
+    <!--
+    <bean id="dept3" class="com.zhyidi.spring5.autowrite.Dept"></bean>
+    <bean id="emp3" class="com.zhyidi.spring5.autowrite.Emp" autowire="byType"></bean>
+    -->
+</beans>

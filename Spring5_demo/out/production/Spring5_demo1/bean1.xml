@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--创建和注入属性-->
+    <!--set方法注入属性-->
+    <bean id="user1" class="com.zhyidi.spring5.Beans.User">
+        <property name="id" value="1"></property>
+        <property name="name" value="1"></property>
+    </bean>
+    <!--有参构造方法注入属性-->
+    <bean id="user2" class="com.zhyidi.spring5.Beans.User">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="2"></constructor-arg>
+    </bean>
+
+    <!--set方法注入属性（null）-->
+    <bean id="user3" class="com.zhyidi.spring5.Beans.User">
+        <property name="id" value="3"></property>
+        <property name="name">
+            <null></null>
+        </property>
+    </bean>
+    <!--set方法注入属性（特殊符号）-->
+    <bean id="user4" class="com.zhyidi.spring5.Beans.User">
+        <property name="id" value="4"></property>
+        <property name="name">
+            <value><![CDATA[<<4>>]]></value>
+        </property>
+    </bean>
+</beans>

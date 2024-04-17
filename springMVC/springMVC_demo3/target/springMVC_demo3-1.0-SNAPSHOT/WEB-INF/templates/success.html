@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmls:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>成功</h1>
+    <p th:text="${#request.getAttribute('testRequestScope')}"></p><br/>
+    <p th:text="${session.testSessionScope}"></p><br/>
+    <p th:text="${application.testApplicationScope}"></p><br/>
+</body>
+</html>

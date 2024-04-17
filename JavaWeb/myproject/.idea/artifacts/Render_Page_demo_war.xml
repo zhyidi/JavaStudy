@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Render_Page_demo:war">
+    <output-path>$PROJECT_DIR$/Render_Page_demo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Render_Page_demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Render_Page_demo-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Render_Page_demo:war exploded" />
+    </root>
+  </artifact>
+</component>

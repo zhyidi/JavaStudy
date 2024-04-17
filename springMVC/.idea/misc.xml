@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_annotation" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_demo1" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_demo2" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_demo3" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_demo4" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_demo5" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_JSP" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_RestFul" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springMVC_demo1/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_demo2/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_demo3/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_JSP/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_RestFul/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_demo4/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_demo5/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_annotation/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/springMVC_RestFul/springMVC_demo4/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="13" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--集合类型属性注入-->
+    <bean id="stu1" class="com.zhyidi.spring5.collectionType.Stu">
+        <property name="courses">
+            <array>
+                <value>java</value>
+                <value>C</value>
+                <value>C++</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>java</value>
+                <value>C</value>
+                <value>C++</value>
+            </list>
+        </property>
+        <property name="maps">
+            <map>
+                <entry key="1" value="2"></entry>
+                <entry key="3" value="4"></entry>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>mysql</value>
+                <value>oracl</value>
+            </set>
+        </property>
+        <property name="list_C">
+            <list>
+                <ref bean="C1"></ref>
+                <ref bean="C2"></ref>
+                <ref bean="C3"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="C1" class="com.zhyidi.spring5.collectionType.Course">
+        <property name="cname" value="1"></property>
+    </bean>
+    <bean id="C2" class="com.zhyidi.spring5.collectionType.Course">
+        <property name="cname" value="2"></property>
+    </bean>
+    <bean id="C3" class="com.zhyidi.spring5.collectionType.Course">
+        <property name="cname" value="3"></property>
+    </bean>
+</beans>

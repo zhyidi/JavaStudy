@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmls:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>测试Resutful</title>
+</head>
+<body>
+    <a th:href="@{/user}">查询所有用户信息</a><br/>
+    <a th:href="@{/user/1}">根据Id查询用户信息</a><br/>
+    <form th:action="@{/user}" method="post">
+        用户名：<input type="text" name="username"><br/>
+        密码：<input type="password" name="password"><br/>
+        <input type="submit" value="添加"><br/>
+    </form>
+    <form th:action="@{/user}" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        用户名：<input type="text" name="username"><br/>
+        密码：<input type="password" name="password"><br/>
+        <input type="submit" value="添加"><br/>
+    </form>
+</body>
+</html>

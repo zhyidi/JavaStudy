@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--内部bean-->
+    <bean id="emp1" class="com.zhyidi.spring5.Beans.Employee">
+        <property name="ename" value="zhyidi1"></property>
+        <property name="gender" value="zhyidi1"></property>
+        <property name="dep">
+            <bean id="dept" class="com.zhyidi.spring5.Beans.Department">
+                <property name="dname" value="保安部"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!--级联赋值和外部bean相似-->
+</beans>

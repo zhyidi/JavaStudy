@@ -1,0 +1,22 @@
+控制反转IOC
+{
+demo1-2 xml方式创建对象、注入各种属性
+demo3   注解方式创建对象、注入各种属性
+}
+
+面向切面AOP
+{
+demo4   AOP（JDK动态代理、CGlib动态代理（AspectJ））
+}
+
+数据库
+demo5   JdbcTemplate操作数据库（ps:JdbcTemplate较Dbutils的RunnQuery而言：
+                                   1.注入了数据库连接池属性，不需要再手动获取/关数据库连接。
+                                   2.且对于事务的管理也直接用注解实现，不需要考虑导致Commit的3种情况，也省去了写Jdbcutils的过程。
+                                   3.批量删除和插入的管理
+                               ）。
+demo6   事务+Spring5新功能（函数式注册对象+整合Junit4（spring5以下也支持）/5框架）
+
+后续WebFlux
+
+
